@@ -7,4 +7,8 @@ def home(request):
     return render(request, 'home.html')
 
 def new(request):
-    return render(request, 'new.html')    
+    full_text = request.GET['fulltext']
+
+    word_list = full_text.split()
+    
+    return render(request, 'new.html', { 'fulltext' : full_text ,'wordlist': word_list } )
